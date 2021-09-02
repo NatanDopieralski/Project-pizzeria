@@ -2,6 +2,7 @@ import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 //const { utils } = require("stylelint");
 
@@ -97,6 +98,31 @@ const app = {
 
   },
 
+  initHome: function(){
+    const thisApp = this;
+
+    thisApp.widgetContainerHome = document.querySelector(select.containerOf.home);
+
+    thisApp.booking = new Home(thisApp.widgetContainerHome);
+
+    //init new active page after click small box link
+    thisApp.orderOnline = document.querySelector(classNames.home.orderOnline);
+    thisApp.bookOnline = document.querySelector(classNames.home.bookTable);
+
+    thisApp.orderOnline.addEventListener('click', function(event){
+      event.preventDefault();
+      window.location.hash = '#/order';
+      thisApp.initPages();
+    });
+
+    thisApp.bookOnline.addEventListener('click', function(event){
+      event.preventDefault();
+      window.location.hash = '#/booking';
+      thisApp.initPages();
+    });
+
+  },
+
   initBooking: function(){
     const thisApp = this;
 
@@ -116,6 +142,7 @@ const app = {
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initHome();
   },
 
   initCart: function(){

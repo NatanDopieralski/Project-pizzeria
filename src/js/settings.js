@@ -3,12 +3,14 @@ export const select = {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
+    homeWidget: '#template-home',
   },
   containerOf: {
     menu: '#product-list',
     cart: '#cart',
     pages: '#pages',
     booking: '.booking-wrapper',
+    home: '.home-wrapper',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -61,6 +63,13 @@ export const select = {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
+    submitBookingForm: '.booking-form',
+    phone: '[name="phone"]',
+    address: '[name="address"]',
+    people: '[name="people"]',
+    hours: '[name="hours"]',
+    water: '[type="checkbox"]',
+    bread: '[value="bread"]',
   },
   nav: {
     links: '.main-nav a',
@@ -78,6 +87,8 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
+    table: '.table',
+    selected: 'selected',
   },
   nav: {
     active: 'active',
@@ -85,6 +96,10 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  home: {
+    orderOnline: '.order-online',
+    bookTable: '.book-a-table',
+  }
 };
 
 export const settings = {
@@ -102,8 +117,8 @@ export const settings = {
     orders: 'orders',
     product: 'product',
     order: 'order',
-    booking: 'booking',
-    event: 'event',
+    booking: 'bookings',
+    event: 'events',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
@@ -125,4 +140,5 @@ export const templates = {
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
   bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
+  pageHomeWidget: Handlebars.compile(document.querySelector(select.templateOf.homeWidget).innerHTML),
 };

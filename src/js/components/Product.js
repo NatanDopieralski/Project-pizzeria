@@ -56,9 +56,10 @@ class Product {
       /* prevent default action for event */
       event.preventDefault();
       /* find active product (product that has active class) */
-      const activeProduct = thisProduct.element.querySelector('article.' + classNames.menuProduct.wrapperActive);
+      const activeProduct = document.querySelector('article.' + classNames.menuProduct.wrapperActive);
       /* if there is active product and it's not thisProduct.element, remove class active from it */
-      if ( activeProduct && activeProduct !== thisProduct.element){
+      //console.log(activeProduct, thisProduct.element);
+      if ( activeProduct && activeProduct != thisProduct.element){
         activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
       }
       /* toggle active class on thisProduct.element */
