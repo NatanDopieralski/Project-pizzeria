@@ -215,11 +215,6 @@ class Booking {
       }
     });
 
-    thisBooking.dom.peopleAmount.addEventListener('click', function(){
-      thisBooking.resetTables();
-      //console.log(thisBooking.starters);
-    });
-
     thisBooking.dom.hoursAmount.addEventListener('click', function(){
       thisBooking.resetTables();
       //console.log(thisBooking.starters);
@@ -283,7 +278,7 @@ class Booking {
     const payload = {
       date: thisBooking.date,
       hour: utils.numberToHour(thisBooking.hour),
-      table: thisBooking.clickedTable,
+      table: thisBooking.tableId,
       duration: thisBooking.dom.hours.value,
       ppl: thisBooking.dom.people.value,
       starters: thisBooking.starters,
@@ -304,10 +299,9 @@ class Booking {
     fetch(url, options)
       .then(function(response){
         return response.json();
-      }).then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
+      }).then(function(){
+        thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
       });
-
   }
 }
 
